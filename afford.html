@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Affordability Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="center.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-1.6.4.min.js"></script>
+<script src="jquery.mobile-1.0.min.js"></script>
+<script src="afford.js"></script>
+<script src="phonegap.js"></script>
+</head>
+<body>
+<div id="page" data-role="page" data-theme="c">
+  <div data-role="header" data-theme="b"> <a href="index.html" data-role="button">Back</a>
+    <h1>Affordability Demo</h1>
+  </div>
+  <div data-role="content">
+    <form name=calc>
+      <table data-role="table" id="table-reflow" class="ui-responsive table-stroke">
+        <tbody>
+          <tr>
+            <td><b>Income Demo</b></td>
+          </tr>
+          <tr>
+            <td>Gross Income (R):</td>
+          </tr>
+          <tr>
+            <td><input name=grossincome type=text /></td>
+          </tr>
+          <tr>
+            <td><b>Expenses Demo</b></td>
+          </tr>
+          <tr>
+            <td>Your total expenses (R):</td>
+          </tr>
+          <tr>
+            <td><input  name=allexpenses type=text /></td>
+          </tr>
+          <tr>
+            <td>Annual Interest Rate (%):</td>
+          </tr>
+          <tr>
+            <td><input  name=rate type=text /></td>
+          </tr>
+          <tr>
+            <td>Repayment Period (Years):</td>
+          </tr>
+          <tr>
+          <tr>
+            <td><input  name=years type=text /></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div data-role="fieldcontain">
+      <input value='Calculate' onclick='showloan()' class='calc' type="button" data-icon="check" data-role="button" data-theme="a" />
+      </div>
+
+      <table data-role="table" id="table-reflow" class="ui-responsive table-stroke">
+        <tbody>
+          <tr>
+            <td>Maximum Loan Amount: </td>
+          </tr>
+          <tr>
+             <td><input name=qualify type=text readonly ></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+	<div data-role="footer" data-theme="b">
+      <div class="center-wrapper">
+<p>This is a demonstration of the calculator. No calculations are correct.</p>
+   </div> 
+    <h4> © Eezi Software <br>
+      <small>eezisoftware.co.za</small></h4>
+    <div class="center-wrapper">
+      <div data-role="button"> <a href="disclaimer.html" data-ajax="false">
+        <p class="ex">Disclaimer</p></a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

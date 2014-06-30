@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bond Balance Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="center.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-1.6.4.min.js"></script>
+<script src="jquery.mobile-1.0.min.js"></script>
+<script src="balancecalc.js"></script>
+<script src="phonegap.js"></script>
+</head> 
+<body> 
+
+<div id="page" data-role="page" data-theme="c">
+	<div data-role="header" data-theme="b"> <a href="index.html" data-role="button">Back</a>
+		<h1>Loan Balance Demo</h1>
+	</div>
+	<div data-role="content">	
+  <form>
+<table data-role="table" id="table-reflow" class="ui-responsive table-stroke">
+      <tbody>
+        <tr>
+          <td>Loan Amount:</td>
+          <td><input id="l" onkeyup="numcalc(this)" type="text" /></td>
+        </tr>
+        <tr>
+          <td>Payment Amount:</td>
+          <td><input id="p" type="text" /></td>
+        </tr>
+        <tr>
+          <td>Interest Rate:</td>
+          <td><input id="i" type="text" /></td>
+        </tr>
+        <tr>
+          <td>No. of Months Paid:</td>
+          <td><input id="n" onkeyup="numcalc(this)" type="text" />
+          </td>
+        </tr>
+        </tbody>
+        </table>
+     <div data-role="fieldcontain">
+          <input id="re" value="Calculate" onclick="calc()" class="calc" type="button" data-icon="check" data-role="button" data-theme="a" />
+      </div>
+
+<table data-role="table" id="table-reflow" class="ui-responsive table-stroke">
+        <tbody>
+          <tr>
+            <td>Capital Balance:</td>
+            <td><input id="op" readonly type="text" /></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <script type="text/javascript">
+		$(".easynumeric").numeric();
+		$(".easyinteger").numeric(false, function() { alert("Integers only"); this.value = ""; this.focus(); });
+		$(".easypositive").numeric({ negative: false }, function() { alert("No negative values"); this.value = ""; this.focus(); });
+		$(".easypositive-integer").numeric({ decimal: false, negative: false }, function() { alert("Positive integers only"); this.value = ""; this.focus(); });
+	      </script>
+          
+    </form>
+    
+	</div>
+	<div data-role="footer" data-theme="b">
+      <div class="center-wrapper">
+<p>This is a demonstration of the calculator. No calculations are correct.</p>
+   </div> 
+    <h4> © Eezi Software <br>
+      <small>eezisoftware.co.za</small></h4>
+    <div class="center-wrapper">
+      <div data-role="button"> <a href="disclaimer.html" data-ajax="false">
+        <p class="ex">Disclaimer</p></a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

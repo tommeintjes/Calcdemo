@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Transfer and Bond Cost Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="center.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-1.6.4.min.js"></script>
+<script src="jquery.mobile-1.0.min.js"></script>
+<script src="transfercost.js"></script>
+<script src="phonegap.js"></script>
+</head>
+<body>
+<div id="page1" data-role="page" data-theme="c">
+  <div data-role="header" data-theme="b"> <a href="index.html" data-role="button">Back</a>
+    <h1>Transfer / Bond Costs Demo</h1>
+  </div>
+  <div data-role="content"> 
+    <script type="text/javascript">$(document).ready(function(){if ($('#purchaseP').val()>0) doFullOnCalc();});</script>
+    <form name="transform">
+      <div data-role="fieldcontain">
+        <label for="textinput">Total Amount:</label>
+        <input name="purchaseP" id="purchaseP" value="" type="text" data-theme="d"  />
+      </div>
+      <div data-role="fieldcontain">
+        <label for="textinput2">Bond Amount:</label>
+        <input name="bondAmount" type="text" id="bondAmount" value="" data-theme="d"  />
+      </div>
+      <div data-role="fieldcontain">
+        <label for="radio-choice-2">Conventional Title Transfer:</label>
+        <input name="titletrans" type="radio" id="radio-choice-2" value="convec" checked="checked"  data-theme="d"  />
+        <label for="radio-choice-3">Sectional Title Transfer</label>
+        <input name="titletrans" type="radio" id="radio-choice-3" value="section" data-theme="d"  />
+      </div>
+      <div data-role="fieldcontain">
+        <label for="select">If the sectional title purchase includes exclusive use, please select how many:</label>
+        <select name="exclu" data-theme="d">
+          <option selected="selected">1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+        </select>
+      </div>
+      <div data-role="fieldcontain">
+        <input onclick="doFullOnCalc()" value="Calculate" data-icon="check" type="button" data-role="button" data-theme="a" />
+      </div>
+      <!--    -->
+      <table data-role="table" id="table-reflow" class="ui-responsive table-stroke">
+        <thead>
+          <tr>
+            <th data-priority="1"> Transfer Fees</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Transfer Fees</td>
+            <td align="right"><label id="transFeeN">0.00</label></td>
+          </tr>
+          <tr>
+            <td>Vat @ 14%</td>
+            <td align="right"><label id="vatN">0.00</label></td>
+          </tr>
+          <tr>
+            <td>Deeds Office Levy</td>
+            <td align="right"><label id="deedOfficeN">0.00</label></td>
+          </tr>
+          <tr>
+            <td><strong>Subtotal:</strong></td>
+            <td align="right"><label id="totalN1">0.00</label></td>
+          </tr>
+          <tr>
+            <td colspan="3">&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Transfer Duty</td>
+            <td align="right"><label id="transDutyN">0.00</label></td>
+          </tr>
+          <tr>
+            <td><strong>Subtotal:</strong></td>
+            <td align="right"><label id="totalN2">0.00</label></td>
+          </tr>
+          <tr>
+            <td colspan="3">&nbsp;</td>
+          </tr>
+           <tr>
+            <td>Lodging Agent Fee:</td>
+            <td align="right"><label id="lodgeN">0.00</label></td>
+          </tr>
+         <tr>
+            <td>Postage and Petties:</td>
+            <td align="right"><label id="postageN">0.00</label></td>
+          </tr>
+          <tr>
+            <td>Rates/Levy Clearance</td>
+            <td align="right"><label id="ratesN">0.00</label></td>
+          </tr>
+          <tr>
+            <td>Pro-Rata Rates/Levies</td>
+            <td align="right"><label id="prorataN">0.00</label></td>
+          </tr>
+          <tr>
+            <td>Exclusive Use</td>
+            <td align="right"><label id="excluN">0.00</label></td>
+          </tr>
+          <!--<tr>
+                <td>Bank Electronic&nbsp;Connection Fee</td>
+                <td><label id="bankN">R 0.00</label></td>
+                <td><label id="bankL">R 0.00</label></td>
+            </tr>-->
+          <tr>
+            <td>Fica</td>
+            <td align="right"><label id="ficaN">0.00</label></td>
+          </tr>
+          <tr>
+            <td>Deeds Office Search</td>
+            <td align="right"><label id="deedOfficeSearchN">0.00</label></td>
+          </tr>
+          <tr>
+            <td>Electronic Doc  Fee </td>
+            <td align="right"><label id="electroDocN">0.00</label></td>
+          </tr>
+          <tr>
+            <td><strong>TOTAL:</strong></td>
+            <td align="right"><label id="totalN3">0.00</label></td>
+          </tr>
+          <tr>
+            <td colspan="3">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Bond Costs</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Fees</td>
+            <td align="right"><label id="fees">0.00</label></td>
+          </tr>
+          <tr>
+            <td>Vat 14%</td>
+            <td align="right"><label id="vat">0.00</label></td>
+          </tr>
+          <tr>
+            <td>Deeds Office Levy</td>
+            <td align="right"><label id="deeds">0.00</label></td>
+          </tr>
+          <tr>
+            <td>Postage and Petties</td>
+            <td align="right"><label id="postagePettiesBC">0.00</label></td>
+          </tr>
+          <tr>
+            <td>Insurance Certificate</td>
+            <td align="right"><label id="insCert">0.00</label></td>
+          </tr>
+          <tr>
+            <td>Fica</td>
+            <td align="right"><label id="fica2">0.00</label></td>
+          </tr>
+          <tr>
+            <td>Bank Connection Fee</td>
+            <td align="right"><label id="bcf">0.00</label></td>
+          </tr>
+          <tr>
+            <td>Electronic Doc Fee</td>
+            <td align="right"><label id="docfee">0.00</label></td>
+          </tr>
+          <tr>
+            <td><strong>TOTAL:</strong></td>
+            <td align="right"><label id="tot2">0.00</label></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <p>Bank administration and initiation fee of up to R5700 is not included above.</p>
+  </div>
+	<div data-role="footer" data-theme="b">
+       <div class="center-wrapper">
+<p>This is a demonstration of the calculator. No calculations are correct.</p>
+   </div> 
+   <h4> © Eezi Software <br>
+      <small>eezisoftware.co.za</small></h4>
+    <div class="center-wrapper">
+      <div data-role="button"> <a href="disclaimer.html" data-ajax="false">
+        <p class="ex">Disclaimer</p></a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

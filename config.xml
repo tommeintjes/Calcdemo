@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id = "za.co.eezisoftware.bondcalc"
+        version = "1.0.0">
+
+    <name>Bond Calculator</name>
+
+    <description>
+        Calculators for the South African Real Estate environment.
+    </description>
+
+    <author href="http://eezisoftware.co.za" email="tommeintjes@mweb.co.za">
+        Tom Meintjes
+    </author>
+
+    <!-- Customize your app and platform with the preference element. -->
+    <preference name="phonegap-version" value="3.3.0" /> <!-- all: current version of PhoneGap -->
+    <preference name="orientation" value="default" /> <!-- all: default means both landscape and portrait are enabled -->
+    <preference name="target-device" value="universal" /> <!-- all: possible values handset, tablet, or universal -->
+    <preference name="android-minSdkVersion" value="7" /> <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
+    <preference name="android-installLocation" value="auto" /> <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
+
+     <!-- Define app icon for each platform. -->
+    <icon src="images/icon-48-mdpi.png" gap:platform="android" gap:density="mdpi" />
+    <icon src="images/icon-72-hdpi.png" gap:platform="android" gap:density="hdpi" />
+    <icon src="images/icon-96-xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+    <icon src="images/icon-144-xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
+    <icon src="images/icon-192-xxxhdpi.png" gap:platform="android" gap:density="xxxhdpi" />
+
+</widget>

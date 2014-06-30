@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Additional Bond Repayment Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="center.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-1.6.4.min.js"></script>
+<script src="jquery.mobile-1.0.min.js"></script>
+<script src="extrapay.js"></script>
+<script src="phonegap.js"></script>
+</head>
+<body>
+<div id="page" data-role="page" data-theme="c">
+  <div data-role="header" data-theme="b"> <a href="index.html" data-role="button">Back</a>
+    <h1>Additional Payments Demo</h1>
+  </div>
+  <div data-role="content">
+    <form name="extrapay">
+      <table data-role="table" id="table-reflow" class="ui-responsive table-stroke">
+        <tbody>
+        <tr>
+          <td>Loan Amount:</td>
+          <td><input name=aa type=text onkeyup=checnum(this) ></td>
+        </tr>
+        <tr>
+          <td>Interest Rate:</td>
+          <td><input name=bb type=text onkeyup=checnum(this) ></td>
+        </tr>
+        <tr>
+          <td>Term (Years)</td>
+          <td><input name=cc type=text onkeyup=checnum(this)></td>
+        </tr>
+        </tbody>
+      </table>
+      <table data-role="table" id="table-reflow" class="ui-responsive table-stroke">
+         <tbody>
+       <tr>
+          <td>Additional Monthly Payment:</td>
+          <td><input name="dd" type="text" /></td>
+        </tr>
+        </tbody>
+      </table>
+      <div data-role="fieldcontain">
+<input name=ss value=Calculate onclick=loan() type="button" data-icon="check" data-role="button" data-theme="a" />
+        </div>
+
+      <table data-role="table" id="table-reflow" class="ui-responsive table-stroke">
+        <tbody>
+          <tr align="center">
+            <td class="inner" colspan="2"><b>Results:</b></td>
+          </tr>
+          <tr>
+            <td>Normal Monthly Payment:</td>
+            <td><input name="r1" readonly type="text" /></td>
+          </tr>
+          <tr>
+            <td>New Monthly Payment:</td>
+            <td><input name="r2" readonly type="text" /></td>
+          </tr>
+          <tr>
+            <td>New Term: (Months)</td>
+            <td><input name="r3" readonly type="text" /></td>
+          </tr>
+          <tr>
+            <td> Interest Saved:</td>
+            <td><input name="r4" readonly type="text" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <script type="text/javascript">
+		$(".easynumeric").numeric();
+		$(".easyinteger").numeric(false, function() { alert("Integers only"); this.value = ""; this.focus(); });
+		$(".easypositive").numeric({ negative: false }, function() { alert("No negative values"); this.value = ""; this.focus(); });
+		$(".easypositive-integer").numeric({ decimal: false, negative: false }, function() { alert("Positive integers only"); this.value = ""; this.focus(); });
+	      </script>
+    </form>
+  </div>
+
+	<div data-role="footer" data-theme="b">
+       <div class="center-wrapper">
+<p>This is a demonstration of the calculator. No calculations are correct.</p>
+   </div> 
+   <h4> © Eezi Software <br>
+      <small>eezisoftware.co.za</small></h4>
+    <div class="center-wrapper">
+      <div data-role="button"> <a href="disclaimer.html" data-ajax="false">
+        <p class="ex">Disclaimer</p></a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
